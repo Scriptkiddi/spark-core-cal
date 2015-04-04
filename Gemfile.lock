@@ -1,0 +1,47 @@
+GIT
+  remote: git://github.com/alfo/google_calendar.git
+  revision: 3e4c14bf3a9a2d70b9b809c2c5c39c7bcf5612a1
+  specs:
+    google_calendar (0.4.0)
+      signet (>= 0.5.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.1.4)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.1)
+      tzinfo (~> 1.1)
+    addressable (2.3.6)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    i18n (0.6.11)
+    json (1.8.1)
+    jwt (1.0.0)
+    minitest (5.4.0)
+    multi_json (1.10.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
+    ruby_spark (1.0.0)
+      httparty (~> 0.13)
+    signet (0.5.1)
+      addressable (>= 2.2.3)
+      faraday (>= 0.9.0.rc5)
+      jwt (>= 0.1.5)
+      multi_json (>= 1.0.0)
+    thread_safe (0.3.4)
+    tzinfo (1.2.1)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  google_calendar!
+  ruby_spark
