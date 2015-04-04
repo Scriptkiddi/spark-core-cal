@@ -1,0 +1,39 @@
+require 'rubygems'
+require 'google_calendar'
+
+if ENV['CLIENT_ID']
+  client_id = ENV['CLIENT_ID']
+else
+  puts "Enter your client id"
+  client_id = $stdin.gets.chomp
+end
+
+if ENV['CLIENT_SECRET']
+  client_secret = ENV['CLIENT_SECRET']
+else
+  puts "Enter your client secret"
+  client_secret = $stdin.gets.chomp
+end
+
+puts "Enter your calendar id"
+calendar_id = $stdin.gets.chomp
+
+
+
+# Create an instance of the calendar.
+cal = Google::Calendar.new(:client_id     => client_id,
+                           :client_secret => client_secret,
+                           :calendar      => calendar_id,
+                           :redirect_url  => "urn:ietf:wg:oauth:2.0:oob" # this is what Google uses for 'applications'
+                           )
+
+# A user needs to approve access in order to work with their calendars.
+puts "Visit the following web page in your browser and approve access."
+puts cal.authorize_url
+puts "\nCopy the code that Google returned and paste it here:"
+
+# Pass the ONE TIME USE access code here to login and get a refresh token that you can use for access from now on.
+refresh_token = cal.login_with_auth_code( $stdin.gets.chomp )
+
+puts "Now run the following command:"
+puts "heroku config:set REFRESH_TOKEN='#{refresh_token}'"
