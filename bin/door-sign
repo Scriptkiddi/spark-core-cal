@@ -7,11 +7,8 @@ require 'active_support/all'
 
 # Array of Google Calendar Names to check
 CALENDARS = {
-  'School' => 'alexforey.com_pkbcsa4uk7jtog8tkj65hndpn8@group.calendar.google.com',
-  'Home' => 'alexforey.com_g0l2pjg9tbevhr066glf4ub6mc@group.calendar.google.com',
-  'Work' => 'alexforey.com_d51bdglmg2o9t0nk86ce8vcqik@group.calendar.google.com',
-  'SPS Film' => 'ki1vv5ieoeljjtvh7ihumje7go@group.calendar.google.com',
-  'Lessons' => 'alexforey.com_9rcvmgk971lv19biuqku4bla98@group.calendar.google.com'
+  'Home' => 'scriptkiddi200@googlemail.com',
+  'Mealhub' => '9ma4o0o5256fjt697p1ibphlmg@group.calendar.google.com',
 }
 
 def calendar(id)
@@ -78,10 +75,10 @@ end
 # Did we end up with an event?
 if event
   # Yes, so build the payload with "|" between each part
-  payload = "Alex is at:|#{event[:event].title}|#{event[:event].location}|(#{event[:cal]} Calendar)"
+  payload = "Fritz is at:|#{event[:event].title}|#{event[:event].location}|(#{event[:cal]} Calendar)"
 else
   # No, so say we're not busy
-  payload = "Alex is currently| | Not busy| "
+  payload = "Fritz is| | Not busy| "
 end
 
 # Initalise the core
