@@ -75,10 +75,10 @@ end
 # Did we end up with an event?
 if event
   # Yes, so build the payload with "|" between each part
-  payload = "Fritz is at:|#{event[:event].title}|#{event[:event].location}|(#{event[:cal]} Calendar)"
+  payload = "Fritz ist bei:|#{event[:event].title}|#{event[:event].location}|(#{event[:cal]} Calendar)"
 else
   # No, so say we're not busy
-  payload = "Fritz is| | Not busy| "
+  payload = "Fritz macht| | gerade nichts| "
 end
 
 # Initalise the core
@@ -88,7 +88,7 @@ core = RubySpark::Core.new(ENV['SPARK_ID'], ENV['SPARK_TOKEN'])
 core.function("update", payload)
 
 # Figure out whether the backlight should be on or off
-now = Time.now.in_time_zone("London")
+now = Time.now.in_time_zone("Berlin")
 
 # Compare them
 if now.hour >= 22 or now.hour <= 7
